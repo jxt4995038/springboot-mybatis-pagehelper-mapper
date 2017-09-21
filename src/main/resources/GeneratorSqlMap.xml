@@ -4,7 +4,13 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <context id="testTables" targetRuntime="MyBatis3">
+    <context id="testTables" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.jxt.util.MyMapper"/>
+            <property name="caseSensitive" value="true"/>
+            <property name="beginningDelimiter" value=""/>
+            <property name="endingDelimiter" value=""/>
+        </plugin>
         <commentGenerator>
             <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
             <property name="suppressAllComments" value="true" />
@@ -49,7 +55,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table tableName="POLIST_USER"></table>
+        <table tableName="POLIST_USER_SOURCE"></table>
         <!-- <table schema="" tableName="sys_user"></table>
         <table schema="" tableName="sys_role"></table>
         <table schema="" tableName="sys_permission"></table>
